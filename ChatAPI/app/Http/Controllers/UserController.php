@@ -83,4 +83,28 @@ public function logout(Request $request)
         'status' => 'success',
     ], 200);
 }
+
+public function logged_user(){
+    $getuser=auth()->user();
+    return response()->json([
+        'user' => $getuser,
+        'message' => 'User fetched successfully',
+        'status' => 'success',
+    ], 200);
+
+}
+public function change_password(Request $request){
+    $request->validate([
+        'password' => 'required|string|confirmed',
+    ]);
+    $user=auth()->user();
+    $user->password=Hash::make($request->password);
+    $user->save();
+    return response()->json([
+        'message' => 'Password changed successfully',
+        'status' => 'success',
+    ], 200);
+}
+
+
 }
