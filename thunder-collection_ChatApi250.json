@@ -1,0 +1,200 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ChatApi250",
+    "dateExported": "2023-03-10T08:23:57.944Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9bf1de51-c314-4880-b8d0-4ce20e122877",
+            "colId": "ac3c5772-60ff-4a64-9d8e-13063e012067",
+            "containerId": "",
+            "name": "User Registration",
+            "url": "http://127.0.0.1:8000/api/user/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-03-09T18:10:26.146Z",
+            "modified": "2023-03-10T05:16:30.443Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "\n{\n  \"name\":\"Mynul\",\n  \"email\":\"mynulakash436@gmail.com\",\n  \"password\":\"123456\",\n  \"password_confirmation\":\"123456\",\n  \"tc\":true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "918286f4-72a2-4681-8344-b8ce81c36eab",
+            "colId": "ac3c5772-60ff-4a64-9d8e-13063e012067",
+            "containerId": "",
+            "name": "User Login",
+            "url": "http://127.0.0.1:8000/api/user/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-03-09T19:44:17.867Z",
+            "modified": "2023-03-10T05:17:15.641Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "\n{\n  \"email\":\"mynulakash436@gmail.com\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b8722b05-5c11-46ab-8037-a78886d80278",
+            "colId": "ac3c5772-60ff-4a64-9d8e-13063e012067",
+            "containerId": "",
+            "name": "User LogOut",
+            "url": "http://127.0.0.1:8000/api/user/logout",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-03-09T19:58:51.534Z",
+            "modified": "2023-03-10T04:12:26.881Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 7|osxc7GyeyLErnALpcTIWAtPj4SRj0GVllyzn2SwI"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "\n{\n  \"email\":\"m@gmail.com\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ca5c2d4f-5741-4b72-bec9-d50ce34ce4b0",
+            "colId": "ac3c5772-60ff-4a64-9d8e-13063e012067",
+            "containerId": "",
+            "name": "Get Logged User Data",
+            "url": "http://127.0.0.1:8000/api/user/loggeduser",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-03-10T04:11:23.585Z",
+            "modified": "2023-03-10T04:16:45.344Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 11|1gI6G8LXrXvyv1eKBcAqaF1KJOFUKQY4mDFWgAp2"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"myfwe1@gmail.com\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d96b499e-6aad-4c44-9577-b8f576e2c78c",
+            "colId": "ac3c5772-60ff-4a64-9d8e-13063e012067",
+            "containerId": "",
+            "name": "User changed password",
+            "url": "http://127.0.0.1:8000/api/user/changepassword",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-03-10T04:24:55.192Z",
+            "modified": "2023-03-10T05:45:45.695Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 11|1gI6G8LXrXvyv1eKBcAqaF1KJOFUKQY4mDFWgAp2"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n  \"password\":\"12345678\",\n  \"password_confirmation\":\"12345678\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1adda2dd-172a-48da-95d0-7cdab6cf3a8b",
+            "colId": "ac3c5772-60ff-4a64-9d8e-13063e012067",
+            "containerId": "",
+            "name": "User changed password Email",
+            "url": "http://127.0.0.1:8000/api/user/sendpasswordresetemail",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-03-10T04:46:18.081Z",
+            "modified": "2023-03-10T05:43:13.661Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 11|1gI6G8LXrXvyv1eKBcAqaF1KJOFUKQY4mDFWgAp2",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\"email\":\"mynulakash436@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
