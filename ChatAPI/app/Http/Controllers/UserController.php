@@ -17,6 +17,29 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
+
+    public function usersprofile()
+    {
+
+        try {
+            return response()->json([
+                'data' => auth()->user(),
+                'message' => 'User fetched successfully',
+                'status' => 'success',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+                'status' => 'error',
+            ], 500);
+        }
+    }
+
+
+
+
+
+
     public function register(Request $request)
     {
         request()->validate([
@@ -75,36 +98,83 @@ class UserController extends Controller
     //         'status' => 'success',
     //     ], 200);
     // }
-public function logout(Request $request)
-{
-    $request->user()->currentAccessToken()->delete();
-    return response()->json([
-        'message' => 'User logged out successfully',
-        'status' => 'success',
-    ], 200);
-}
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'message' => 'User logged out successfully',
+            'status' => 'success',
+        ], 200);
+    }
 
-public function logged_user(){
-    $getuser=auth()->user();
-    return response()->json([
-        'user' => $getuser,
-        'message' => 'User fetched successfully',
-        'status' => 'success',
-    ], 200);
+    public function logged_user()
+    {
+        $getuser = auth()->user();
+        return response()->json([
+            'user' => $getuser,
+            'message' => 'User fetched successfully',
+            'status' => 'success',
+        ], 200);
+    }
+    public function change_password(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|string|confirmed',
+        ]);
+        $user = auth()->user();
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return response()->json([
+            'message' => 'Password changed successfully',
+            'status' => 'success',
+        ], 200);
+    }
 
-}
-public function change_password(Request $request){
-    $request->validate([
-        'password' => 'required|string|confirmed',
-    ]);
-    $user=auth()->user();
-    $user->password=Hash::make($request->password);
-    $user->save();
-    return response()->json([
-        'message' => 'Password changed successfully',
-        'status' => 'success',
-    ], 200);
-}
+    public function test()
+    {
+        return response()->json([
+            'message' => 'test',
+            'status' => 'success',
+        ], 200);
+    }
 
 
+
+
+    public function getUsers()
+    {
+        $users = User::all();
+        return response()->json([
+            'users' => $users,
+            'message' => 'Users fetched successfully',
+            'status' => 'success',
+        ], 200);
+    }
+
+
+    public function update_profile(Request $request)
+    {
+        $validator = $request->validate([
+
+            'name' => 'required|string',
+            'address' => 'string',
+            'phone' => 'string',
+            'image' => 'string',
+
+        ]);
+
+
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->image = $request->image;
+        $user->tc = json_decode($request->tc);
+        $user->save();
+        return response()->json([
+            'message' => 'User updated successfully',
+            'status' => 'success',
+        ], 200);
+    }
 }
