@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +33,20 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users',[UserController::class,'getUsers']);
    // Route::post('/update',[UserController::class,'updateUser']);
    // Route::post('/delete',[UserController::class,'deleteUser']);
+   Route::post('/chat/message', [ChatController::class,'sendMessage']);
+Route::get('/chat/messages/{channel_id}',  [ChatController::class,'getMessages']);
+   
 });
 
 Route::get('/test',[Controller::class,'test']);
+Route::post('/chat/message', [ChatController::class,'sendMessage']);
+Route::get('/chat/messages/{channel_id}',  [ChatController::class,'getMessages']);
+
+
+Route::group(['middleware' => 'auth:api'], function () {
+    // Route::post('/chat/message', [ChatController::class,'sendMessage']);
+    // Route::get('/chat/messages/{channel_id}',  [ChatController::class,'getMessages']);
+});
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

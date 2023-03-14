@@ -42,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected function messages(){
+        return $this->hasMany(Message::class);
+    }
+
+
+    public function canJoinChannel($channelId)
+    {
+        return $this->id === $channelId;
+    }
 }
